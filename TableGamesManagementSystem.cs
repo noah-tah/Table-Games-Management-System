@@ -1,6 +1,4 @@
-﻿Console.WriteLine("Hello, World!");
-
-Console.WriteLine("Welcome to Noah's Table Game Management System!");
+﻿namespace TableGamesManagementSystem;
 
 class TableGamesManagementSystem
 {
@@ -55,6 +53,13 @@ public enum ChipColor
     Purple
 }
 
+public enum TableType
+{
+    Blackjack,
+    UltimateTexasHoldem,
+    ThreeCardPoker
+}
+
 public class Chip
 {
     public ChipColor Color { get; }
@@ -84,9 +89,35 @@ public class Tray
 {
     private List<Chip> chips = new();
 
-    public Tray()
+    public Tray(TableType tableType)
     {
-        // We will initialize the tray with default amounts of chips based upon on the table
+        switch (tableType)
+        {
+            case TableType.Blackjack;
+                AddChips(ChipColor.Purple, 40);
+                AddChips(ChipColor.Black, 60);
+                AddChips(ChipColor.Green, 120);
+                AddChips(ChipColor.Red, 300);
+                AddChips(ChipColor.White, 60);
+                AddChips(ChipColor.Yellow, 60);
+                break;
+            case TableType.ThreeCardPoker;
+                AddChips(ChipColor.Purple, 40);
+                AddChips(ChipColor.Black, 60);
+                AddChips(ChipColor.Green, 120);
+                AddChips(ChipColor.Red, 300);
+                AddChips(ChipColor.White, 60);
+                AddChips(ChipColor.Yellow, 60);
+                break;
+            case TableType.UltimateTexasHoldem;
+                AddChips(ChipColor.Purple, 40);
+                AddChips(ChipColor.Black, 40);
+                AddChips(ChipColor.Green, 140);
+                AddChips(ChipColor.Red, 300);
+                AddChips(ChipColor.White, 60);
+                AddChips(ChipColor.Yellow, 60);
+                break;
+        }
     }
     public void AddChips(ChipColor color, int count)
     {
