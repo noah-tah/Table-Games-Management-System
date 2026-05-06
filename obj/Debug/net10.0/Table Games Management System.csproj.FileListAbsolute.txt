@@ -1,0 +1,5 @@
+C:\Users\noah\source\repos\Table Games Management System\obj\Debug\net10.0\Table Games Management System.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\noah\source\repos\Table Games Management System\obj\Debug\net10.0\Table Games Management System.AssemblyInfoInputs.cache
+C:\Users\noah\source\repos\Table Games Management System\obj\Debug\net10.0\Table Games Management System.AssemblyInfo.cs
+C:\Users\noah\source\repos\Table Games Management System\obj\Debug\net10.0\Table Games Management System.csproj.CoreCompileInputs.cache
+C:\Users\noah\source\repos\Table Games Management System\obj\Debug\net10.0\Table Games Management System.sourcelink.json
