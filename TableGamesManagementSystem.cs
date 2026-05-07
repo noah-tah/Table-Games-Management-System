@@ -1,5 +1,6 @@
 ﻿namespace TableGamesManagementSystem;
 
+
 class TableGamesManagementSystem
 {
     private TableGamesMenu menu = new();
