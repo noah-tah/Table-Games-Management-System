@@ -3,6 +3,9 @@
 class TableGamesManagementSystem
 {
     private TableGamesMenu menu = new();
+    // This is NOT getting a list of tables, it is creating an empty list to STORE them.
+    private List<Table> tables = new();
+    // tables is now: [ ] 
 
     public void Run()
     {
@@ -25,7 +28,7 @@ class TableGamesManagementSystem
                         menu.DisplayTables();
                         break;
                     case 2:
-                        Console.WriteLine("Add New Table selected");
+                        CreateTable();
                         break;
                     case 3:
                         Console.WriteLine("Request a Fill selected");
@@ -48,13 +51,48 @@ class TableGamesManagementSystem
             }
         }
     }
+
+    private void CreateTable()
+    {
+        Console.WriteLine("\nWhat type of table would you like to create? \n");
+        Console.WriteLine("1. Blackjack\n2. Ultimate Texas Hold'em\n3. Three Card Poker\n");
+
+        string? input = Console.ReadLine();
+
+        if (int.TryParse(input, out int choice))
+        {
+            TableType? tableType = choice switch
+            {
+                1 => TableType.Blackjack,
+                2 => TableType.UltimateTexasHoldem,
+                3 => TableType.ThreeCardPoker,
+                _ => null
+            };
+
+            if (tableType.HasValue)
+            {
+                Table newTable = new(tableType.Value);
+                tables.Add(newTable);
+                Console.WriteLine($"Successfully created {tableType.Value} table!");
+                newTable.PrintTableInfo();
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice. Please enter a number between 1 and 3.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter a valid number.");
+        }
+    }
 }
 
 class TableGamesMenu
 {
     public void DisplayTables()
     {
-        // There are 8 tables in total, 4 Blackjack, 2 Ultimate Texas Hold'em, and 2 Three Card Poker
+        // These are the default tables, that can be expanded through the Table Games Management System
         Console.WriteLine("\n--- Available Tables ---");
         Console.WriteLine("1. Blackjack Table 1");
         Console.WriteLine("2. Blackjack Table 2");
@@ -66,6 +104,7 @@ class TableGamesMenu
         Console.WriteLine("8. Three Card Poker Table 2");
     }
 
+    // Eventually going to need to be updated to return Table objects instead of strings
     public string GetTableChoice(int choice)
     {
         return choice switch
@@ -179,6 +218,7 @@ public class Table
 {
     public TableType Type { get; }
     public Tray Tray { get; }
+
 
     public Table(TableType type)
     {
