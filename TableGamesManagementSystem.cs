@@ -1,4 +1,6 @@
-﻿namespace TableGamesManagementSystem;
+﻿using System.Runtime.CompilerServices;
+
+namespace TableGamesManagementSystem;
 
 
 class TableGamesManagementSystem
@@ -26,7 +28,7 @@ class TableGamesManagementSystem
                 switch (choice)
                 {
                     case 1:
-                        menu.DisplayTables();
+                        menu.DisplayTables(tables);
                         break;
                     case 2:
                         CreateTable();
@@ -72,9 +74,17 @@ class TableGamesManagementSystem
 
             if (tableType.HasValue)
             {
-                Table newTable = new(tableType.Value);
+                Console.WriteLine("\nEnter a name for this table: ");
+                string? tableName = Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(tableName))
+                {
+                    tableName = "Unnamed Table";
+                }
+
+                Table newTable = new(tableType.Value, tableName);
                 tables.Add(newTable);
-                Console.WriteLine($"Successfully created {tableType.Value} table!");
+                Console.WriteLine($"\nSuccessfully created {tableType.Value} table!");
                 newTable.PrintTableInfo();
             }
             else
@@ -91,18 +101,20 @@ class TableGamesManagementSystem
 
 class TableGamesMenu
 {
-    public void DisplayTables()
+    public void DisplayTables(List<Table> tables)
     {
-        // These are the default tables, that can be expanded through the Table Games Management System
-        Console.WriteLine("\n--- Available Tables ---");
-        Console.WriteLine("1. Blackjack Table 1");
-        Console.WriteLine("2. Blackjack Table 2");
-        Console.WriteLine("3. Blackjack Table 3");
-        Console.WriteLine("4. Blackjack Table 4");
-        Console.WriteLine("5. Ultimate Texas Hold'em Table 1");
-        Console.WriteLine("6. Ultimate Texas Hold'em Table 2");
-        Console.WriteLine("7. Three Card Poker Table 1");
-        Console.WriteLine("8. Three Card Poker Table 2");
+        if (tables.Count == 0)
+        {
+            Console.WriteLine("No tables created yet");
+            return;
+        }
+
+        Console.WriteLine("\n--- Current Tables ---");
+        foreach (var table in tables)
+        {
+            table.PrintTableInfo();
+            Console.WriteLine();
+        }
     }
 
     // Eventually going to need to be updated to return Table objects instead of strings
@@ -217,18 +229,21 @@ public class Tray
 
 public class Table
 {
+    public string Name { get; set; }
     public TableType Type { get; }
     public Tray Tray { get; }
 
 
-    public Table(TableType type)
+    public Table(TableType type, string name = "Unnamed Table")
     {
         Type = type;
+        Name = name;
         Tray = new Tray(type);
     }
 
     public void PrintTableInfo()
     {
+        Console.WriteLine($"Table Name: {Name}");
         Console.WriteLine($"Table Type: {Type}");
         Tray.PrintTray();
     }
