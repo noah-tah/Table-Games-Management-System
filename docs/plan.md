@@ -15,3 +15,29 @@ Inside it, create an instance of your TableGamesManagementSystem class and call 
 
 # Notes on further implementation
 - When you list the current tables, you should be able to select a table and view details about that table.
+
+
+
+- Request a fill/credit should probably be under the manage table screen
+- Manage table should have the following options
+    - Players
+        - Position
+        - Buy-in
+        - Player History
+            - History by month
+            - History annually
+            - Complete History
+        - ID
+            - Name
+            - Address
+            - DOB
+            - Hair Color
+            - Eye Color
+            - Height
+            - Weight
+        - Players Card # - Can be null
+    - Request a Fill
+    - Request a Credit
+    - Ante Tracking (track every time a black chip is dropped for ante  )
+
+
