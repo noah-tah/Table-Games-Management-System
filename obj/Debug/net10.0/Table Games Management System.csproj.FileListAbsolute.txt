@@ -1,15 +1,30 @@
-C:\Users\noah\source\repos\Table Games Management System\obj\Debug\net10.0\Table Games Management System.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\noah\source\repos\Table Games Management System\obj\Debug\net10.0\Table Games Management System.AssemblyInfoInputs.cache
-C:\Users\noah\source\repos\Table Games Management System\obj\Debug\net10.0\Table Games Management System.AssemblyInfo.cs
-C:\Users\noah\source\repos\Table Games Management System\obj\Debug\net10.0\Table Games Management System.csproj.CoreCompileInputs.cache
-C:\Users\noah\source\repos\Table Games Management System\obj\Debug\net10.0\Table Games Management System.sourcelink.json
-C:\Users\noah\source\repos\Table Games Management System\bin\Debug\net10.0\Table Games Management System.exe
-C:\Users\noah\source\repos\Table Games Management System\bin\Debug\net10.0\Table Games Management System.deps.json
-C:\Users\noah\source\repos\Table Games Management System\bin\Debug\net10.0\Table Games Management System.runtimeconfig.json
-C:\Users\noah\source\repos\Table Games Management System\bin\Debug\net10.0\Table Games Management System.dll
-C:\Users\noah\source\repos\Table Games Management System\bin\Debug\net10.0\Table Games Management System.pdb
-C:\Users\noah\source\repos\Table Games Management System\obj\Debug\net10.0\Table Games Management System.dll
-C:\Users\noah\source\repos\Table Games Management System\obj\Debug\net10.0\refint\Table Games Management System.dll
-C:\Users\noah\source\repos\Table Games Management System\obj\Debug\net10.0\Table Games Management System.pdb
-C:\Users\noah\source\repos\Table Games Management System\obj\Debug\net10.0\Table Games Management System.genruntimeconfig.cache
-C:\Users\noah\source\repos\Table Games Management System\obj\Debug\net10.0\ref\Table Games Management System.dll
+C:/Users/noah/source/repos/Table Games Management System/obj/Debug/net10.0/Table Games Management System.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/noah/source/repos/Table Games Management System/obj/Debug/net10.0/Table Games Management System.AssemblyInfoInputs.cache
+C:/Users/noah/source/repos/Table Games Management System/obj/Debug/net10.0/Table Games Management System.AssemblyInfo.cs
+C:/Users/noah/source/repos/Table Games Management System/obj/Debug/net10.0/Table Games Management System.csproj.CoreCompileInputs.cache
+C:/Users/noah/source/repos/Table Games Management System/obj/Debug/net10.0/Table Games Management System.sourcelink.json
+C:/Users/noah/source/repos/Table Games Management System/bin/Debug/net10.0/Table Games Management System.exe
+C:/Users/noah/source/repos/Table Games Management System/bin/Debug/net10.0/Table Games Management System.deps.json
+C:/Users/noah/source/repos/Table Games Management System/bin/Debug/net10.0/Table Games Management System.runtimeconfig.json
+C:/Users/noah/source/repos/Table Games Management System/bin/Debug/net10.0/Table Games Management System.dll
+C:/Users/noah/source/repos/Table Games Management System/bin/Debug/net10.0/Table Games Management System.pdb
+C:/Users/noah/source/repos/Table Games Management System/obj/Debug/net10.0/Table Games Management System.dll
+C:/Users/noah/source/repos/Table Games Management System/obj/Debug/net10.0/refint/Table Games Management System.dll
+C:/Users/noah/source/repos/Table Games Management System/obj/Debug/net10.0/Table Games Management System.pdb
+C:/Users/noah/source/repos/Table Games Management System/obj/Debug/net10.0/Table Games Management System.genruntimeconfig.cache
+C:/Users/noah/source/repos/Table Games Management System/obj/Debug/net10.0/ref/Table Games Management System.dll
+/home/noahtah/Alexandria/Table-Games-Management-System/bin/Debug/net10.0/Table Games Management System
+/home/noahtah/Alexandria/Table-Games-Management-System/bin/Debug/net10.0/Table Games Management System.deps.json
+/home/noahtah/Alexandria/Table-Games-Management-System/bin/Debug/net10.0/Table Games Management System.runtimeconfig.json
+/home/noahtah/Alexandria/Table-Games-Management-System/bin/Debug/net10.0/Table Games Management System.dll
+/home/noahtah/Alexandria/Table-Games-Management-System/bin/Debug/net10.0/Table Games Management System.pdb
+/home/noahtah/Alexandria/Table-Games-Management-System/obj/Debug/net10.0/Table Games Management System.GeneratedMSBuildEditorConfig.editorconfig
+/home/noahtah/Alexandria/Table-Games-Management-System/obj/Debug/net10.0/Table Games Management System.AssemblyInfoInputs.cache
+/home/noahtah/Alexandria/Table-Games-Management-System/obj/Debug/net10.0/Table Games Management System.AssemblyInfo.cs
+/home/noahtah/Alexandria/Table-Games-Management-System/obj/Debug/net10.0/Table Games Management System.csproj.CoreCompileInputs.cache
+/home/noahtah/Alexandria/Table-Games-Management-System/obj/Debug/net10.0/Table Games Management System.sourcelink.json
+/home/noahtah/Alexandria/Table-Games-Management-System/obj/Debug/net10.0/Table Games Management System.dll
+/home/noahtah/Alexandria/Table-Games-Management-System/obj/Debug/net10.0/refint/Table Games Management System.dll
+/home/noahtah/Alexandria/Table-Games-Management-System/obj/Debug/net10.0/Table Games Management System.pdb
+/home/noahtah/Alexandria/Table-Games-Management-System/obj/Debug/net10.0/Table Games Management System.genruntimeconfig.cache
+/home/noahtah/Alexandria/Table-Games-Management-System/obj/Debug/net10.0/ref/Table Games Management System.dll

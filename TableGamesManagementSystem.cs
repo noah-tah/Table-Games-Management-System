@@ -18,9 +18,9 @@ class TableGamesManagementSystem
         bool running = true;
         while (running)
         {
-            Console.WriteLine("\nPlease select an option: \n");
             Console.WriteLine("1. Current Tables\n2. Add New Table\n3. Request a Fill\n4. Request a Credit\n5. Exit\n");
 
+            Console.Write("Enter your choice: ");
             string? input = Console.ReadLine();
 
             if (int.TryParse(input, out int choice))
@@ -86,6 +86,21 @@ class TableGamesManagementSystem
                 tables.Add(newTable);
                 Console.WriteLine($"\nSuccessfully created {tableType.Value} table!");
                 newTable.PrintTableInfo();
+                Console.WriteLine("Would you like to manage this table now? (y/n)");
+
+                string? manageInput = Console.ReadLine();
+
+                if (manageInput != null && manageInput.Trim().ToLower() == "y")
+                {
+                    // Here we would call a method to manage the table, but since we haven't implemented that yet, we'll just print a message for now.
+                    Console.WriteLine($"Managing {newTable.Name}...");
+                    // ManageTable(newTable); // This is where we would implement the management functionality in the future.
+                }
+
+                if (manageInput != null && manageInput.Trim().ToLower() == "n")
+                {
+                    Console.WriteLine("Returning to main menu...");
+                }
             }
             else
             {
@@ -157,7 +172,7 @@ public class Chip
     public ChipColor Color { get; }
     public decimal Value => ChipValues[Color];
 
-    private static readonly Dictionary<ChipColor, decimal> ChipValues = new()
+    public static readonly Dictionary<ChipColor, decimal> ChipValues = new()
     {
         { ChipColor.Yellow, .5m },
         { ChipColor.White, 1 },
@@ -178,51 +193,70 @@ public class Chip
 
 public class Tray
 {
-    private List<Chip> chips = new();
+    private Dictionary<ChipColor, int> chipCounts = new();
 
+    // This is the constructor, and we are initialzing the tray here with its initial set of chips based on the table type
     public Tray(TableType tableType)
     {
         // Assuming we are creating a new table, we will initialize the tray with a standard set of chips based on the table type
         switch (tableType)
         {
             case TableType.Blackjack:
-                AddChips(ChipColor.Purple, 40);
-                AddChips(ChipColor.Black, 60);
-                AddChips(ChipColor.Green, 120);
-                AddChips(ChipColor.Red, 300);
-                AddChips(ChipColor.White, 60);
-                AddChips(ChipColor.Yellow, 60);
+                chipCounts[ChipColor.Purple] = 40;
+                chipCounts[ChipColor.Black] = 60;
+                chipCounts[ChipColor.Green] = 120;
+                chipCounts[ChipColor.Red] = 300;
+                chipCounts[ChipColor.White] = 60;
+                chipCounts[ChipColor.Yellow] = 60;
                 break;
             case TableType.ThreeCardPoker:
-                AddChips(ChipColor.Purple, 40);
-                AddChips(ChipColor.Black, 60);
-                AddChips(ChipColor.Green, 120);
-                AddChips(ChipColor.Red, 300);
-                AddChips(ChipColor.White, 60);
-                AddChips(ChipColor.Yellow, 60);
+                chipCounts[ChipColor.Purple] = 40;
+                chipCounts[ChipColor.Black] = 60;
+                chipCounts[ChipColor.Green] = 120;
+                chipCounts[ChipColor.Red] = 300;
+                chipCounts[ChipColor.White] = 60;
+                chipCounts[ChipColor.Yellow] = 60;
                 break;
             case TableType.UltimateTexasHoldem:
-                AddChips(ChipColor.Purple, 40);
-                AddChips(ChipColor.Black, 40);
-                AddChips(ChipColor.Green, 140);
-                AddChips(ChipColor.Red, 300);
-                AddChips(ChipColor.White, 60);
-                AddChips(ChipColor.Yellow, 60);
+                chipCounts[ChipColor.Purple] = 40;
+                chipCounts[ChipColor.Black] = 40;
+                chipCounts[ChipColor.Green] = 140;
+                chipCounts[ChipColor.Red] = 300;
+                chipCounts[ChipColor.White] = 60;
+                chipCounts[ChipColor.Yellow] = 60;
                 break;
         }
     }
+
+    public static Tray NewTray(TableType tableType)
+    {
+        return new Tray(tableType);
+    }
+
     public void AddChips(ChipColor color, int count)
     {
-        for (int i = 0; i < count; i++)
-            chips.Add(new Chip(color));
+        chipCounts[color] = chipCounts.GetValueOrDefault(color, 0) + count;
+    }
+
+    public bool RemoveChips(ChipColor color, int count)
+    {
+        if (chipCounts.TryGetValue(color, out int current) && current >= count)
+        {
+            chipCounts[color] = current - count;
+            if (chipCounts[color] == 0)
+            {
+                chipCounts.Remove(color);
+            }
+            return true;
+        }
+        return false; // Not enough chips
     }
 
     public void PrintTray()
     {
         Console.WriteLine("Tray contains: ");
-        var grouped = chips.GroupBy(c => c.Color);
-        foreach (var group in grouped)
-            Console.WriteLine($"{group.Count()} x {group.Key} chip (${group.First().Value})");
+        foreach (var kvp in chipCounts.OrderBy(kvp => kvp.Key))
+            Console.WriteLine($"{kvp.Value} x {kvp.Key} chip (${Chip.ChipValues[kvp.Key]})");
     }
 }
 
@@ -238,7 +272,7 @@ public class Table
     {
         Type = type;
         Name = name;
-        Tray = new Tray(type);
+        Tray = Tray.NewTray(type);
     }
 
     public void PrintTableInfo()
@@ -246,5 +280,11 @@ public class Table
         Console.WriteLine($"Table Name: {Name}");
         Console.WriteLine($"Table Type: {Type}");
         Tray.PrintTray();
+    }
+
+    public void ManageTable(Table table)
+    {
+        Console.WriteLine($"Managing {table.Name}...");
+        // Here we would implement the management functionality, such as requesting fills or credits, but for
     }
 }
